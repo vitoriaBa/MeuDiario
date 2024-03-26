@@ -2,9 +2,9 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput, ImageBackground, TouchableOpacity} from 'react-native';
 import { useState,useEffect } from 'react';
 
-import { getAuth, CreateUserWithEmailAndPassword, } from 'firebase/auth';
+import { getAuth, signInWithEmailAndPassword,onAuthStateChanged } from 'firebase/auth';
 import { Initializing } from '@firebase/app';
-import Firebase from '../firebase';
+import Firebase from '../../firebase';
 
 
 //const auth = Firebase.auth();
@@ -12,8 +12,9 @@ import Firebase from '../firebase';
 const auth = getAuth(Firebase);
 
 
-
-export default function Cadastrar({navigation}) {
+//pao@gmail.com
+//paopao
+export default function Login({navigation}) {
 
   
 const [email,setEmail] = useState('');
@@ -21,11 +22,11 @@ const [senha,setSenha] = useState('');
 const [user,setUser] = useState('');
 
 
-function cadastrar(){
+function login(){
 
   // const app = initializeApp(Firebase);
 
-  CreateUserWithEmailAndPassword(auth,email,senha).catch(
+  signInWithEmailAndPassword(auth,email,senha).catch(
     function(error){
         var errorCode = error.code;
         var errorMessage = error.message;
@@ -75,27 +76,21 @@ else{
       value={senha}
       />
 <View style={styles.cbutao}>
-
-
-
-<TouchableOpacity style={styles.botao}
-      onPress={()=>{
-        cadastrar();
-        return navigation.navigate('Login');
-      }}>
-        <Text style={styles.botaotexto}>Cadastrar</Text>
-      </TouchableOpacity>
-   
-
       <TouchableOpacity style={styles.botao}
       onPress={()=>{
-        return navigation.navigate('Login');
+        login();
       }}>
         <Text style={styles.botaotexto}>Logar</Text>
       </TouchableOpacity>
 
       
-      </View> 
+      <TouchableOpacity style={styles.botao}
+      onPress={()=>{
+        return navigation.navigate('Cadastrar');
+      }}>
+        <Text style={styles.botaotexto}>Cadastrar</Text>
+      </TouchableOpacity>
+     </View> 
 
       
 
@@ -156,17 +151,18 @@ const styles = StyleSheet.create({
   },
   botao:{
     width:250,
-    backgroundColor:'#FFF6E0',
+   // backgroundColor:'tras',
     height:40,
     marginTop:15,
     alignItems:'center',
-  
+    borderWidth:1,
+   borderColor:'#FFF6E0',
     justifyContent:'center',
     borderRadius:10
     
   },
   botaotexto:{
-    color: '#000000',
+    color: '#FFF6E0',
     fontSize:30,
     fontWeight:'100',
   }

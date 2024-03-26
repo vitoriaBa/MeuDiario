@@ -1,11 +1,11 @@
 import {NavigationContainer} from '@react-navigation/native';
 
-import Rotas from './pages/Rotas';
+import RotasAcesso from './pages/pagesLogin/RotasAcesso';
 
 export default function App() {
   return (
    <NavigationContainer>
-    <Rotas/>
+    <RotasAcesso/>
    </NavigationContainer>
   );
 }

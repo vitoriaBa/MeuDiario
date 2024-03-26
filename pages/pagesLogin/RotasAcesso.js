@@ -1,6 +1,6 @@
 import {createStackNavigator} from '@react-navigation/stack';
 
-import Home from './Home';
+import Home from '../pagesApp/Home';
 import Login from './Login';
 import Cadastrar from './Cadastrar';
 

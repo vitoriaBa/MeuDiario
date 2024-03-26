@@ -2,9 +2,9 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput, ImageBackground, TouchableOpacity} from 'react-native';
 import { useState,useEffect } from 'react';
 
-import { getAuth, signInWithEmailAndPassword,onAuthStateChanged } from 'firebase/auth';
+import { getAuth, CreateUserWithEmailAndPassword, } from 'firebase/auth';
 import { Initializing } from '@firebase/app';
-import Firebase from '../firebase';
+import Firebase from '../../firebase';
 
 
 //const auth = Firebase.auth();
@@ -12,9 +12,8 @@ import Firebase from '../firebase';
 const auth = getAuth(Firebase);
 
 
-//pao@gmail.com
-//paopao
-export default function Login({navigation}) {
+
+export default function Cadastrar({navigation}) {
 
   
 const [email,setEmail] = useState('');
@@ -22,11 +21,11 @@ const [senha,setSenha] = useState('');
 const [user,setUser] = useState('');
 
 
-function login(){
+function cadastrar(){
 
   // const app = initializeApp(Firebase);
 
-  signInWithEmailAndPassword(auth,email,senha).catch(
+  CreateUserWithEmailAndPassword(auth,email,senha).catch(
     function(error){
         var errorCode = error.code;
         var errorMessage = error.message;
@@ -76,21 +75,27 @@ else{
       value={senha}
       />
 <View style={styles.cbutao}>
+
+
+
+<TouchableOpacity style={styles.botao}
+      onPress={()=>{
+        cadastrar();
+        return navigation.navigate('Login');
+      }}>
+        <Text style={styles.botaotexto}>Cadastrar</Text>
+      </TouchableOpacity>
+   
+
       <TouchableOpacity style={styles.botao}
       onPress={()=>{
-        login();
+        return navigation.navigate('Login');
       }}>
         <Text style={styles.botaotexto}>Logar</Text>
       </TouchableOpacity>
 
       
-      <TouchableOpacity style={styles.botao}
-      onPress={()=>{
-        return navigation.navigate('Cadastrar');
-      }}>
-        <Text style={styles.botaotexto}>Cadastrar</Text>
-      </TouchableOpacity>
-     </View> 
+      </View> 
 
       
 
