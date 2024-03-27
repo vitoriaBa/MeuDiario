@@ -52,7 +52,7 @@ else{
 }
 
   return (
-    <ImageBackground source={require('../assets/funto.jpg')} style={styles.image}> 
+   <ImageBackground source={require('../../assets/funto.jpg')} style={styles.image}> 
     <View style={styles.container}>
 
         
