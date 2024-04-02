@@ -1,11 +1,9 @@
-import { StatusBar } from 'expo-status-bar';
-import { Firebase } from 'firebase/app';
-//import { Firebase } from '../../firebase';
+
+import { Firebase } from '../firebase';
 import { useEffect, useState } from 'react';
 import { StyleSheet,TextInput,ImageBackground, Text, View, TouchableOpacity,FlatList, Alert } from 'react-native';
-import {MaterialCommityIcons} from '@expo/vector-icons';
 import { TextInput } from 'react-native-gesture-handler';
-//import { FlatList } from 'react-native-gesture-handler';
+
 
 export default function CadasroDiario({navigation}) {
    
@@ -20,7 +18,6 @@ function addDiario(){
         titulo: titulo,
         data: data,
         texto: texto,
-        diario: diario,
         local: local
     });//nao coloquei diario ??
     setTitulo({titulo:''})
@@ -55,7 +52,13 @@ return(
     onChangeText={setLocal} value={local}/>
      
  </View>
-
+<TouchableOpacity
+ style={styles.bntenviar}
+ onPress={() => {
+  addDiario();
+ }}>
+<Text> Enviar</Text>
+</TouchableOpacity>
 
 </View>
 );

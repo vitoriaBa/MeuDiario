@@ -1,12 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
-import { Firebase } from 'firebase/app';
-//import { Firebase } from '../../firebase';
-import { useEffect, useState } from 'react';
-import { StyleSheet,ImageBackground, Text, View, TouchableOpacity,FlatList } from 'react-native';
-import {MaterialCommityIcons} from '@expo/vector-icons';
-//import { FlatList } from 'react-native-gesture-handler';
 
-export default function Home({navigation}) {
+import { Firebase } from '../firebase';
+import { useEffect, useState } from 'react';
+import { StyleSheet,ImageBackground, Text, View, TouchableOpacity,FlatList,Alert } from 'react-native';
+//import {MaterialCommityIcons} from '@expo/vector-icons';
+
+// // <MaterialCommityIcons name="delete-empty" size={70} color="red"/>
+//<MaterialCommityIcons name="plus-circle-outline" size={70} color="red"/>
+
+export default function Home({navigation}) {   
 
   const [diario,setDiario] = useState([]);
 
@@ -57,7 +59,7 @@ export default function Home({navigation}) {
 </TouchableOpacity>
 
 <TouchableOpacity onPress={()=>{deleteDiario(item.id)}}>
-  <MaterialCommityIcons name="delete-empty" size={70} color="red"/>
+<Text>AQUi Deletar</Text>
 </TouchableOpacity>
 </View>
 
@@ -66,8 +68,9 @@ export default function Home({navigation}) {
       }}
       />
 
-<TouchableOpacity style={styles.estilobutao} onPress={()=> navigation.navigate('?')}>
-<MaterialCommityIcons name="plus-circle-outline" size={70} color="red"/>
+<TouchableOpacity style={styles.estilobutao} onPress={()=> navigation.navigate('CadastrarDiario')}>
+<Text>AQUi ?</Text>
+
 </TouchableOpacity>
       
      <StatusBar style="auto" />

@@ -4,7 +4,7 @@ import { useState,useEffect } from 'react';
 
 import { getAuth, signInWithEmailAndPassword,onAuthStateChanged } from 'firebase/auth';
 import { Initializing } from '@firebase/app';
-import Firebase from '../../firebase';
+import Firebase from '../firebase';
 
 
 //const auth = Firebase.auth();

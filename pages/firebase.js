@@ -1,5 +1,6 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
+
+import Firebase from 'firebase'
+import 'firebase/storage';
 
 const firebaseConfig = {
   apiKey: "AIzaSyClo7o0dM_njpMsptr2PXIO-1stFixP688",
@@ -9,8 +10,11 @@ const firebaseConfig = {
   messagingSenderId: "338787123879",
   appId: "1:338787123879:web:3bbf61834e167588dc5182"
 };
+if(!Firebase.apps.length){
+  Firebase.initializeApp(firebaseConfig);
+}
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
+const bdstore = Firebase.firestore();
 
-export default app;
+
+export default bdstore;
