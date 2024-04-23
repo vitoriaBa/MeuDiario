@@ -1,4 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
+/*import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput, ImageBackground, TouchableOpacity} from 'react-native';
 import { useState,useEffect } from 'react';
 
@@ -167,3 +167,4 @@ const styles = StyleSheet.create({
     fontWeight:'100',
   }
 });
+*/
