@@ -1,8 +1,8 @@
 
-import { Firebase } from '../firebase';
+import { Firebase } from '../Firebase';
 import { useEffect, useState } from 'react';
-import { StyleSheet,TextInput,ImageBackground, Text, View,Alert, TouchableOpacity,FlatList, Alert } from 'react-native';
-import { TextInput } from 'react-native-gesture-handler';
+import { StyleSheet,TextInput,ImageBackground, Text, View,Alert, TouchableOpacity,FlatList,  } from 'react-native';
+
 
 
 export default function AlterarDiario({navigation,route}) {
@@ -23,7 +23,7 @@ function alterarDiario(id,titulo,texto,data,local){
         diario: diario,
         local: local
     });//nao coloquei diario ??
-    Alert.alert("Aviso", "Diario Alterado com sucesso. :) ")
+    alert("Aviso", "Diario Alterado com sucesso. :) ")
     navigation.navigate("Home")
 }
 

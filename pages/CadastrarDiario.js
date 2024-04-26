@@ -1,8 +1,9 @@
 
-import { Firebase } from '../firebase';
+import { Firebase } from '../Firebase';
 import { useEffect, useState } from 'react';
-import { StyleSheet,TextInput,ImageBackground, Text, View, TouchableOpacity,FlatList, Alert } from 'react-native';
-import { TextInput } from 'react-native-gesture-handler';
+import { StyleSheet,TextInput,ImageBackground, Text, View, TouchableOpacity,FlatList, 
+ } from 'react-native';
+
 
 
 export default function CadasroDiario({navigation}) {
@@ -25,7 +26,7 @@ function addDiario(){
     setData({data:''})
     setLocal({local:''})
 
-    Alert.alert("Cadastro", "Diario cadastrado com sucesso :)")
+    alert("Cadastro", "Diario cadastrado com sucesso :)")
     navigation.navigate("Home")
 }
 

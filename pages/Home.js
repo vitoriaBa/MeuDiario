@@ -1,8 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 
-import { Firebase } from '../firebase';
+import { Firebase } from '../Firebase';
 import { useEffect, useState } from 'react';
-import { StyleSheet,ImageBackground, Text, View, TouchableOpacity,FlatList,Alert } from 'react-native';
+import { StyleSheet,ImageBackground, Text, View, TouchableOpacity,FlatList, } from 'react-native';
 //import {MaterialCommityIcons} from '@expo/vector-icons';
 
 // // <MaterialCommityIcons name="delete-empty" size={70} color="red"/>
@@ -16,7 +16,7 @@ export default function Home({navigation}) {
 
     Firebase.collection("diario").doc(id).delete();
 
-    Alert.alert("A diario foi deletada");
+    alert("A diario foi deletada");
   }
 
   useEffect(()=> {
@@ -32,8 +32,7 @@ export default function Home({navigation}) {
 
 
   return (
-    <ImageBackground source={require('../../assets/fundo2.jpg')} style={styles.image}> 
-   
+  
     <View style={styles.container}>
       <Text style={styles.titulo}>Meu Diario</Text>
       
@@ -75,7 +74,7 @@ export default function Home({navigation}) {
       
      <StatusBar style="auto" />
     </View>
-   </ImageBackground>
+  
   );
 }
 
