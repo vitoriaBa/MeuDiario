@@ -1,7 +1,7 @@
-
+import React from 'react';
 import { Firebase } from '../Firebase';
-import { useEffect, useState } from 'react';
-import { StyleSheet,TextInput,ImageBackground, Text, View,Alert, TouchableOpacity,FlatList,  } from 'react-native';
+import { useState } from 'react';
+import { StyleSheet,TextInput,ImageBackground,Alert, Text, View, TouchableOpacity } from 'react-native';
 
 
 
@@ -15,15 +15,14 @@ export default function AlterarDiario({navigation,route}) {
    const [local, setLocal] = useState(route.params.local);
 
 function alterarDiario(id,titulo,texto,data,local){
-    Firebase.collection('diario').doc(id).update({
-        id: id,//talves tenha que tirar alguns
+  Firebase.collection("diario").doc(id).update({
         titulo: titulo,
         data: data,
         texto: texto,
         diario: diario,
         local: local
     });//nao coloquei diario ??
-    alert("Aviso", "Diario Alterado com sucesso. :) ")
+    Alert.alert("Aviso", "Diario Alterado com sucesso. :) ")
     navigation.navigate("Home")
 }
 
@@ -33,7 +32,7 @@ return(
                                                
     <Text style={styles.Titulo}>Alterar dados do Diario</Text>
     <TextInput 
-    autoCapitalize='words' style={styles.input} placeholder='Digite seu Titulo'
+    style={styles.input} placeholder='Digite seu Titulo'
     onChangeText={setTitulo} value={titulo}/>
 
 

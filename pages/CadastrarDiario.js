@@ -1,9 +1,7 @@
-
-import { Firebase } from '../Firebase';
-import { useEffect, useState } from 'react';
-import { StyleSheet,TextInput,ImageBackground, Text, View, TouchableOpacity,FlatList, 
- } from 'react-native';
-
+import React from 'react';
+import { useState } from 'react';
+import { StyleSheet,TextInput, Text, View, TouchableOpacity,Alert} from 'react-native';
+ import { Firebase } from '../Firebase';
 
 
 export default function CadasroDiario({navigation}) {
@@ -14,19 +12,18 @@ export default function CadasroDiario({navigation}) {
    const [local, setLocal] = useState(null);
 
 function addDiario(){
-    Firebase.collection('diario').add({
-        id: id,//talves tenha que tirar alguns
+  Firebase.collection('diario').add({
         titulo: titulo,
         data: data,
         texto: texto,
         local: local
-    });//nao coloquei diario ??
+    });
     setTitulo({titulo:''})
     setTexto({texto:''})
     setData({data:''})
     setLocal({local:''})
 
-    alert("Cadastro", "Diario cadastrado com sucesso :)")
+    Alert.alert("Cadastro", "Diario cadastrado com sucesso :)")
     navigation.navigate("Home")
 }
 
@@ -34,34 +31,20 @@ return(
 <View style={styles.container}>
  <View>
                                                
-    <Text style={styles.Titulo}> Cadastre Suas {'\n'} Titulo</Text>
-    <TextInput 
-    autoCapitalize='words' style={styles.input} placeholder='Digite seu Titulo'
-    onChangeText={setTitulo} value={titulo}/>
-
-
-<TextInput 
-     style={styles.input} placeholder='Digite a Data'
-    onChangeText={setData} value={data}/>
-
-<TextInput 
-     style={styles.input} placeholder='Digite seu Texto do dia :)'
-    onChangeText={setTexto} value={texto}/>
-
-<TextInput 
-     style={styles.input} placeholder='Digite seu Local'
-    onChangeText={setLocal} value={local}/>
-     
- </View>
-<TouchableOpacity
- style={styles.bntenviar}
- onPress={() => {
-  addDiario();
- }}>
-<Text> Enviar</Text>
-</TouchableOpacity>
-
-</View>
+ <Text style={estilo.titulo}> Registre no Seu Diário</Text>
+      </View>
+      <TextInput autoCapitalize = 'words' style={estilo.input} placeholder="Digite o Título" onChangeText={setTitulo} value={titulo}/>
+      <TextInput style={estilo.input} placeholder="Digite o lindo dia" onChangeText={setTexto} value={texto}/>
+      <TextInput style={estilo.input} placeholder="Digite a data" onChangeText={setData} value={data}/>
+      <TextInput style={estilo.input} placeholder="Digite o seu local agora" onChangeText={setLocal} value={local}/>
+      <TouchableOpacity
+        style={estilo.btnenviar}
+        onPress={() => {
+          addDiario();
+        }}>
+        <Text style={estilo.btntxtenviar}> Enviar </Text>
+      </TouchableOpacity>
+    </View>
 );
 
 }
