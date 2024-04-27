@@ -1,7 +1,8 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 
-import { Firebase } from '../Firebase';
+import { Firebase } from '../firebase';
+
 import { useEffect, useState } from 'react';
 import { StyleSheet,ImageBackground, Text, View, TouchableOpacity,FlatList, } from 'react-native';
 //import {MaterialCommityIcons} from '@expo/vector-icons';
@@ -14,10 +15,10 @@ export default function Home({navigation}) {
   const [diario,setDiario] = useState([]);
 
   function deleteDiario(id){
-
+    
     Firebase.collection("diario").doc(id).delete();
 
-    alert("A diario foi deletada");
+    alert("O diario foi deletado");
   }
 
   useEffect(()=> {

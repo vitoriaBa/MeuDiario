@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { StyleSheet,TextInput, Text, View, TouchableOpacity,Alert} from 'react-native';
- import { Firebase } from '../Firebase';
+ import { Firebase } from '../firebase';
 
 
 export default function CadasroDiario({navigation}) {
@@ -12,7 +12,7 @@ export default function CadasroDiario({navigation}) {
    const [local, setLocal] = useState(null);
 
 function addDiario(){
-  Firebase.collection('diario').add({
+  Firebase.collection("diario").add({
         titulo: titulo,
         data: data,
         texto: texto,
